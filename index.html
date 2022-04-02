@@ -40,7 +40,44 @@
 			</div>
 
 			<div class="todo-body">
-				<div class="tasks"></div>
+				<div class="tasks">
+					<!--Task #1-->
+					<div class="task">
+						<input type="checkbox" id="task1" />
+						<label for="task1">
+							<span class="custom-checkbox">finish this damn app</span>
+						</label>
+					</div>
+					<!--Task #2-->
+					<div class="task">
+						<input type="checkbox" id="task2" />
+						<label for="task2">
+							<span class="custom-checkbox">finish this damn app</span>
+						</label>
+					</div>
+					<!--Task #3-->
+					<div class="task">
+						<input type="checkbox" id="task3" />
+						<label for="task3">
+							<span class="custom-checkbox">finish this damn app</span>
+						</label>
+					</div>
+				</div>
+				<div class="task-creator">
+					<form action="">
+						<input
+							type="text"
+							class="new list"
+							placeholder="New Task Name"
+							aria-label="New Task name"
+						/>
+						<button class="btn-task" aria-label="Create new task">+</button>
+					</form>
+				</div>
+				<div class="delete-ish">
+					<button class="btn delete">Clear finished tasks</button>
+					<button class="btn delete">Delete list</button>
+				</div>
 			</div>
 		</div>
 
