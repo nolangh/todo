@@ -10,6 +10,7 @@ body {
   margin: 0;
   font-weight: 300;
   font-size: 1.5rem;
+  color: black;
   background-color: coral;
   display: -ms-grid;
   display: grid;
@@ -23,6 +24,7 @@ body {
 
 .all-tasks {
   grid-area: lists;
+  color: black;
 }
 
 .task-list {
