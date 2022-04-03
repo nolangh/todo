@@ -28,44 +28,23 @@
 			</form>
 		</div>
 
-		<div class="todo-list">
+		<!-- ----------------------------- ANCHOR Todo Lists ------------------------------ -->
+		<div class="todo-list" data-list-display-container>
 			<div class="todo-header">
-				<h2 class="list-title">finish todo</h2>
-				<p class="task-counter">3 task remaining</p>
+				<h2 class="list-title" data-list-title>finish todo</h2>
+				<p class="task-counter" data-list-count></p>
 			</div>
 
 			<div class="todo-body">
-				<div class="tasks">
+				<div class="tasks" data-tasks>
 					<!--Task #1-->
-					<div class="task">
-						<input type="checkbox" id="task1" />
-						<label for="task1">
-							<span class="custom-checkbox"></span>
-							finish this damn app
-						</label>
-					</div>
-					<!--Task #2-->
-					<div class="task">
-						<input type="checkbox" id="task2" />
-						<label for="task2">
-							<span class="custom-checkbox"></span>
-							finish this damn app
-						</label>
-					</div>
-					<!--Task #3-->
-					<div class="task">
-						<input type="checkbox" id="task3" />
-						<label for="task3">
-							<span class="custom-checkbox"></span>
-							finish this damn app
-						</label>
-					</div>
 				</div>
-				<div class="task-creator">
-					<form action="">
+				<div class="new-task-creator">
+					<form action="" data-new-task-form>
 						<input
 							type="text"
 							class="new list"
+							data-new-task-input
 							placeholder="New Task Name"
 							aria-label="New Task name"
 						/>
@@ -73,13 +52,25 @@
 					</form>
 				</div>
 				<div class="delete-ish">
-					<button class="btn delete">Clear finished tasks</button>
+					<button class="btn delete" data-clear-complete-tasks-button>
+						Clear finished tasks
+					</button>
 					<button class="btn delete" data-delete-list-button>
 						Delete list
 					</button>
 				</div>
 			</div>
 		</div>
+		<!-- -------- ANCHOR this is a template for the tasks to reduce JS --------- -->
+		<template id="task-template">
+			<div class="task">
+				<input type="checkbox" />
+				<label>
+					<span class="custom-checkbox"></span>
+				</label>
+			</div>
+		</template>
+
 		<script async defer src="/js/app.js"></script>
 	</body>
 </html>
