@@ -8,29 +8,66 @@
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 0;
   font-family: "Roboto Mono", monospace;
   font-weight: 300;
   font-size: 1.5rem;
-  color: black;
+  color: #000000;
   background-color: #e8e8e8;
   display: -ms-grid;
   display: grid;
-  grid-template: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+  grid-template: "...... header header ......" auto "...... lists active ......" auto "...... ...... ...... ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
 }
 
 .title {
+  font-size: 5rem;
   grid-area: header;
   text-align: center;
 }
 
+#main-title {
+  background-color: #000000;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: #e8e8e8;
+  text-align: center;
+}
+
+#main-title #dash {
+  color: #5be86b;
+}
+
 .all-tasks {
   grid-area: lists;
+  max-width: 10em;
   color: #000000;
 }
 
 .task-list {
   line-height: 1.7;
+  text-align: center;
+  list-style-type: disc;
+}
+
+.task-list-title {
+  background-color: #000000;
+  color: #e8e8e8;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  width: 50%;
+}
+
+.list-title {
+  background-color: #000000;
+  color: #e8e8e8;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  width: 50%;
 }
 
 .list-name {
@@ -41,6 +78,9 @@ body {
   opacity: 0.7;
 }
 
+/* #list-input {
+	margin-left: 0.5em;
+}*/
 form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,8 +133,13 @@ form {
   margin-top: 1em;
 }
 
+#main-title {
+  background-color: #000000;
+  color: #e8e8e8;
+}
+
 .btn-task {
-  margin-top: 1em;
+  margin-top: 1.5em;
 }
 
 .task label {
@@ -123,32 +168,63 @@ form {
 }
 
 .custom-checkbox {
+  --size: 0.7em;
   display: inline-block;
-  height: 0.5em;
-  width: 0.5em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  width: var(--size);
+  height: var(--size);
+  margin-right: var(--size);
   cursor: pointer;
-  border: 2px solid #000000;
+  border: 2px solid currentColor;
+  border-radius: 50%;
   -webkit-transform: scale(1);
           transform: scale(1);
-  -webkit-transition: -webkit-transform 200ms ease-in-out;
-  transition: -webkit-transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  transition: -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
 }
 
 .task:hover .custom-checkbox,
 [type="checkbox"]:focus + label .custom-checkbox {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-  color: #5be86b;
+  color: #000000;
 }
 
-[type="checkbox"]:focus + label .custom-checkbox {
-  background-color: #5be86b;
+[type="checkbox"]:checked + label .custom-checkbox {
+  background: #5be86b;
   border-color: #5be86b;
-  -webkit-box-shadow: inset 0 0 0px 3px #e8e8e8;
-          box-shadow: inset 0 0 0px 3px #e8e8e8;
+  -webkit-box-shadow: inset 0 0 0px 2px #e8e8e8;
+          box-shadow: inset 0 0 0px 2px #e8e8e8;
+}
+
+[type="checkbox"]:checked + label {
+  opacity: 0.5;
+}
+
+.task label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 1.5em;
+  left: 1.5em;
+  top: 50%;
+  height: 3px;
+  background: #5be86b;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 /*# sourceMappingURL=main.css.map */

@@ -14,31 +14,69 @@ $white: #e8e8e8;
 }
 
 body {
+	display: flex;
 	margin: 0;
+	//padding-right: 10em;
+	//padding-left: 10em;
 	font-family: "Roboto Mono", monospace;
 	font-weight: 300;
 	font-size: 1.5rem;
-	color: black;
+	color: $black;
 	background-color: $white;
 	display: grid;
 	grid-template:
-		"header header header header" auto
-		"...... lists  active ......" auto /
+		"...... header header ......" auto
+		"...... lists active ......" auto
+		"...... ...... ...... ......" auto/
 		1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
 }
 
 .title {
+	font-size: 5rem;
 	grid-area: header;
 	text-align: center;
 }
 
+#main-title {
+	background-color: $black;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	color: $white;
+	text-align: center;
+
+	#dash {
+		color: $green;
+	}
+}
+
 .all-tasks {
 	grid-area: lists;
+	max-width: 10em;
 	color: $black;
 }
 
 .task-list {
 	line-height: 1.7;
+	text-align: center;
+	list-style-type: disc;
+}
+
+.task-list-title {
+	background-color: $black;
+	color: $white;
+	margin-left: 25%;
+	margin-right: 25%;
+	text-align: center;
+	width: 50%;
+}
+
+.list-title {
+	background-color: $black;
+	color: $white;
+	margin-left: 25%;
+	margin-right: 25%;
+	text-align: center;
+	width: 50%;
 }
 
 .list-name {
@@ -48,6 +86,10 @@ body {
 .list-name:hover {
 	opacity: 0.7;
 }
+
+/* #list-input {
+	margin-left: 0.5em;
+}*/
 
 form {
 	display: flex;
@@ -85,8 +127,14 @@ form {
 #task-input {
 	margin-top: 1em;
 }
+
+#main-title {
+	background-color: $black;
+	color: $white;
+}
+
 .btn-task {
-	margin-top: 1em;
+	margin-top: 1.5em;
 }
 
 .task label {
@@ -111,25 +159,49 @@ form {
 }
 
 .custom-checkbox {
+	--size: 0.7em;
 	display: inline-block;
-	height: 0.5em;
-	width: 0.5em;
-	margin-left: 0.5em;
-	margin-right: 0.5em;
+	width: var(--size);
+	height: var(--size);
+	margin-right: var(--size);
 	cursor: pointer;
-	border: 2px solid $black;
+	border: 2px solid currentColor;
+	border-radius: 50%;
 	transform: scale(1);
-	transition: transform 200ms ease-in-out;
+	transition: transform 300ms ease-in-out;
 }
 
 .task:hover .custom-checkbox,
 [type="checkbox"]:focus + label .custom-checkbox {
 	transform: scale(1.2);
-	color: $green;
+	color: $black;
 }
 
-[type="checkbox"]:focus + label .custom-checkbox {
-	background-color: $green;
+[type="checkbox"]:checked + label .custom-checkbox {
+	background: $green;
 	border-color: $green;
-	box-shadow: inset 0 0 0px 3px $white;
+	box-shadow: inset 0 0 0px 2px $white;
+}
+
+[type="checkbox"]:checked + label {
+	opacity: 0.5;
+}
+
+.task label::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 1.5em;
+	left: 1.5em;
+	top: 50%;
+	height: 3px;
+	background: $green;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 150ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label::after {
+	transform: scaleX(1);
+	transform-origin: left;
 }
