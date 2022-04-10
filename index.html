@@ -1,4 +1,4 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -24,54 +24,59 @@
 		<link rel="stylesheet" href="/style/main.css" />
 	</head>
 	<body>
-		<h1 class="title">
-			<span id="main-title">TO<span id="dash">_</span>DO</span>
-		</h1>
-		<div class="all-tasks">
-			<h2 class="task-list-title">Lists</h2>
-			<ul class="task-list" data-lists></ul>
-
-			<form action="" data-new-list-form id="list-input">
-				<input
-					type="text"
-					class="new list"
-					data-new-list-input
-					placeholder="New List Name"
-					aria-label="new list name"
-				/>
-				<button class="btn create" aria-label="create new list">+</button>
-			</form>
+		<div class="container-fluid title-cont">
+			<h1 class="title">
+				<span id="main-title">TO<span id="dash">_</span>DO</span>
+			</h1>
 		</div>
+		<div class="container-fluid main-cont">
+			<div class="container all-tasks">
+				<h2 class="task-list-title">Lists</h2>
+				<ul class="task-list" data-lists></ul>
 
-		<!-- ----------------------------- ANCHOR Todo Lists ------------------------------ -->
-		<div class="todo-list" data-list-display-container>
-			<div class="todo-header">
-				<h2 class="list-title" data-list-title></h2>
-				<p class="task-counter" data-list-count></p>
+				<form action="" data-new-list-form id="list-input">
+					<input
+						type="text"
+						class="new list"
+						data-new-list-input
+						placeholder="New List Name"
+						aria-label="new list name"
+					/>
+					<button class="btn create" aria-label="create new list">+</button>
+				</form>
 			</div>
+			<!-- ----------------------------- ANCHOR Todo Lists ------------------------------ -->
+			<div class="container-fluid todo-list" data-list-display-container>
+				<div class="container-fluid todo-list-cont">
+					<div class="todo-header">
+						<h2 class="list-title" data-list-title></h2>
+						<p class="task-counter" data-list-count></p>
+					</div>
 
-			<div class="todo-body">
-				<div class="tasks" data-tasks></div>
-				<div class="new-task-creator">
-					<form action="" data-new-task-form>
-						<input
-							type="text"
-							class="new list"
-							id="task-input"
-							data-new-task-input
-							placeholder="New Task Name"
-							aria-label="New Task name"
-						/>
-						<button class="btn-task" aria-label="Create new task">+</button>
-					</form>
-				</div>
-				<div class="delete-ish">
-					<button class="btn delete" data-clear-complete-tasks-button>
-						Clear finished tasks
-					</button>
-					<button class="btn delete" data-delete-list-button>
-						Delete list
-					</button>
+					<div class="todo-body">
+						<div class="tasks" data-tasks></div>
+						<div class="new-task-creator">
+							<form action="" data-new-task-form>
+								<input
+									type="text"
+									class="new list"
+									id="task-input"
+									data-new-task-input
+									placeholder="New Task Name"
+									aria-label="New Task name"
+								/>
+								<button class="btn-task" aria-label="Create new task">+</button>
+							</form>
+						</div>
+						<div class="delete-ish">
+							<button class="btn delete" data-clear-complete-tasks-button>
+								Clear finished tasks
+							</button>
+							<button class="btn delete" data-delete-list-button>
+								Delete list
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
