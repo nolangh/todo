@@ -13,9 +13,14 @@ $white: #e8e8e8;
 	box-sizing: border-box;
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	display: flex;
 	margin: 0;
+	height: 100%;
 	//padding-right: 10em;
 	//padding-left: 10em;
 	font-family: "Roboto Mono", monospace;
@@ -26,8 +31,8 @@ body {
 	display: grid;
 	grid-template:
 		"...... header header ......" auto
-		"...... lists active ......" auto
-		"...... ...... ...... ......" auto/
+		"lists ...... ...... active " auto
+		"...... ......  ...... ......" auto/
 		1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
 }
 
@@ -53,6 +58,7 @@ body {
 	grid-area: lists;
 	max-width: 10em;
 	color: $black;
+	margin-left: 25%;
 }
 
 .task-list {
@@ -100,6 +106,7 @@ form {
 	border: 0;
 	color: inherit;
 	border-bottom: 1px solid;
+	width: 10em;
 	outline: none;
 	transition: border-bottom 100ms ease-in;
 	order: 2;
@@ -117,6 +124,7 @@ form {
 
 .todo-list {
 	grid-area: active;
+	max-width: 15em;
 }
 
 [type="checkbox"] {
@@ -142,6 +150,7 @@ form {
 	align-items: center;
 	position: relative;
 	margin-top: 1em;
+	padding-left: 0.5em;
 	border-radius: 0.5em;
 	background: $white;
 	box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
